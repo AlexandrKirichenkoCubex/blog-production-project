@@ -22,6 +22,12 @@ module.exports = {
         sourceType: 'script',
       },
     },
+    {
+      files: ['**/src/**/*.test.{ts,tsx}'],
+      rules: {
+        'i18next/no-literal-string': 'off',
+      },
+    },
   ],
   parserOptions: {
     ecmaVersion: 'latest',
@@ -46,7 +52,13 @@ module.exports = {
     'import/extensions': 'off',
     'import/no-extraneous-dependencies': 'warn',
     'no-underscore-dangle': 'off',
-    'i18next/no-literal-string': ['error', { markupOnly: true, onlyAttribute: [''] }],
+    'i18next/no-literal-string': ['error',
+      {
+        markupOnly: true,
+        onlyAttribute: [''],
+        ignoreAttribute: ['data-testid'],
+      },
+    ],
     'max-len': ['error', { ignoreComments: true, code: 100 }],
   },
   globals: {
